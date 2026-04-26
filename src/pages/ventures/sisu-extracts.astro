@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const accent = 'var(--accent)';
+const stats = [
+  { v: '$0 → $101M',     l: 'ARR in 5 years' },
+  { v: '$100M',          l: 'Exit · $1B txn' },
+  { v: '70/30',          l: 'Farmer-favored split' },
+  { v: 'Employee-owned', l: 'Today' },
+];
+---
+<Layout title="SISU Extracts — John Figueiredo" active="Home" description="SISU Extracts: zero to $101M ARR, $100M exit in a $1B transaction with Jay-Z as Chief Visionary Officer.">
+  <div style="position:relative;overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute;top:-10%;right:-10%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle, rgba(158,255,90,0.15), transparent 70%);filter:blur(90px);z-index:0;"></div>
+    <div aria-hidden="true" style="position:absolute;bottom:-15%;left:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(158,255,90,0.12), transparent 70%);filter:blur(80px);z-index:0;"></div>
+
+    <div style="position:relative;z-index:1;">
+      <section class="section" style="padding-top:100px;padding-bottom:40px;">
+        <span class="label">VENTURE 01 · 2017–2022 · CO-FOUNDER &amp; CEO</span>
+        <h1 class="display hero-title-md" style="line-height:0.9;letter-spacing:-0.045em;margin:20px 0 0;font-weight:700;background:linear-gradient(135deg, var(--text) 0%, var(--text) 50%, var(--accent) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">
+          SISU<br/>Extracts<span style={`color:${accent};`}>.</span>
+        </h1>
+        <p class="sans" style="font-size:clamp(17px,2vw,22px);color:var(--text-soft);margin-top:24px;max-width:720px;font-weight:300;line-height:1.5;">
+          Built the most reliable cannabis distillate in California, paid farmers a 70/30 split in their favor, grew from inception to $101M ARR, and exited in a $1B transaction with Jay-Z as Chief Visionary Officer.
+        </p>
+
+        <div class="two-col" style="display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-top:48px;">
+          <div style="aspect-ratio:16/10;border-radius:16px;overflow:hidden;border:1px solid var(--border);position:relative;">
+            <img src="/assets/sisu-team.png" alt="The SISU team" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div style="position:absolute;bottom:16px;left:16px;padding:8px 14px;border-radius:8px;background:rgba(10,10,12,0.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em;color:var(--text);">
+              THE TEAM
+            </div>
+          </div>
+          <div style="display:grid;grid-template-rows:1fr 1fr;gap:16px;">
+            <div style="border-radius:16px;overflow:hidden;border:1px solid var(--border);position:relative;min-height:140px;">
+              <img src="/assets/sisu-mjbiz.png" alt="MJBizCon" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            </div>
+            <div style="border-radius:16px;overflow:hidden;border:1px solid var(--border);position:relative;min-height:140px;">
+              <img src="/assets/sisu-crusher.png" alt="Crusher CEO" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top:60px;padding-bottom:40px;">
+        <div class="stats-bar stats-card" style="padding:32px 40px;background:var(--surface);border:1px solid var(--border);border-radius:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+          {stats.map((s, i) => (
+            <div style={`border-left:${i > 0 ? '1px solid var(--border)' : 'none'};padding-left:${i > 0 ? '32px' : '0'};`}>
+              <div class="display" style={`font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1;color:${accent};letter-spacing:-0.03em;`}>{s.v}</div>
+              <div class="sans" style="margin-top:10px;font-size:14px;color:var(--text-soft);">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section two-col" style="padding-top:40px;padding-bottom:80px;display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start;">
+        <article class="sans" style="font-size:clamp(16px,1.7vw,19px);line-height:1.7;color:var(--text-soft);">
+          <h2 class="display story-title" style="line-height:1.05;color:var(--text);font-weight:700;letter-spacing:-0.02em;margin-top:0;">The thesis was the farmers.</h2>
+          <p>I grew up in Northern California. My family had been renting movies to the same farmers in the hills for thirty years — long before legalization, long before the gold rush. When we started SISU in 2017 with Joe Wynne and Shannon Byers, the pitch was simple: build the most reliable, consistent distillate in the state, and pay the people growing the flower a 70/30 split in their favor.</p>
+          <p>Five years later, SISU was the largest distillate brand in California. We grew from zero to <strong style="color:var(--text);">$101M in annual revenue</strong>, built one of the most respected operations in the industry, and were acquired in a $1B transaction with Jay-Z stepping in as Chief Visionary Officer. The company is now employee-owned — exactly how we wanted it.</p>
+          <blockquote style="margin:32px 0;padding:24px 28px;border-radius:14px;background:linear-gradient(135deg, rgba(158,255,90,0.1), rgba(158,255,90,0.04));border:1px solid rgba(158,255,90,0.2);">
+            <p class="display" style="font-size:clamp(20px,2.6vw,28px);line-height:1.25;color:var(--text);font-style:italic;margin:0;font-weight:600;">
+              "Every dollar we made, we made because a farmer trusted us first."
+            </p>
+          </blockquote>
+          <p>SISU taught me that the right founders, the right operating discipline, and the right values compound faster than capital. We didn't have the biggest war chest. We had the deepest relationships, the cleanest product, and the most patient team.</p>
+        </article>
+
+        <aside style="display:flex;flex-direction:column;gap:16px;position:sticky;top:90px;">
+          <div style="border-radius:16px;overflow:hidden;border:1px solid var(--border);aspect-ratio:3/4;">
+            <img src="/assets/sisu-flooded.png" alt="On the floor at SISU" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          </div>
+          <div style="padding:20px;border-radius:14px;background:var(--surface);border:1px solid var(--border);">
+            <span class="label">HIGHLIGHTS</span>
+            <ul style="padding-left:18px;margin:14px 0 0;color:var(--text-soft);font-size:14px;line-height:1.7;">
+              <li>Largest distillate brand in California</li>
+              <li>$101M ARR · acquired in $1B transaction</li>
+              <li>Jay-Z as Chief Visionary Officer</li>
+              <li>Now employee-owned</li>
+              <li>Featured at MJBizCon, Forbes, Cannabis Business Times</li>
+            </ul>
+          </div>
+          <a href="https://sisuextracts.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="justify-content:center;">Visit sisuextracts.com →</a>
+        </aside>
+      </section>
+    </div>
+  </div>
+</Layout>

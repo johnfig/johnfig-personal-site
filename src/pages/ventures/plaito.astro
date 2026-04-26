@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const accent = 'var(--accent-2)';
+const stats = [
+  { v: '1M+',  l: 'Downloads' },
+  { v: '130k', l: 'Weekly active users' },
+  { v: '180',  l: 'Countries' },
+  { v: '40',   l: 'Languages' },
+];
+---
+<Layout title="Plaito — John Figueiredo" active="Home" description="Plaito: an AI tutor that reached 1M+ downloads across 180 countries in 40 languages. The product worked. The business didn't. The mission still drives me.">
+  <div style="position:relative;overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute;top:-10%;right:-10%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle, rgba(90,214,255,0.15), transparent 70%);filter:blur(90px);z-index:0;"></div>
+    <div aria-hidden="true" style="position:absolute;bottom:-15%;left:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(90,214,255,0.12), transparent 70%);filter:blur(80px);z-index:0;"></div>
+
+    <div style="position:relative;z-index:1;">
+      <section class="section" style="padding-top:100px;padding-bottom:40px;">
+        <span class="label cyan">VENTURE 02 · 2022–2024 · FOUNDER &amp; CEO</span>
+        <h1 class="display hero-title-md" style="line-height:0.9;letter-spacing:-0.045em;margin:20px 0 0;font-weight:700;background:linear-gradient(135deg, var(--text) 0%, var(--text) 50%, var(--accent-2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">
+          Plaito<span style={`color:${accent};`}>.</span>
+        </h1>
+        <p class="sans" style="font-size:clamp(17px,2vw,22px);color:var(--text-soft);margin-top:24px;max-width:720px;font-weight:300;line-height:1.5;">
+          An AI tutor designed to dissolve the financial barrier between a student and a great teacher. Reached a million downloads in 180 countries before the business model gave out. The mission still drives me.
+        </p>
+
+        <div class="two-col" style="margin-top:48px;display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:stretch;">
+          <a href="https://drive.google.com/file/d/1eu-qdyxxMx_R7hXuAjpjRfph2Unk8leR/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style="position:relative;border-radius:20px;overflow:hidden;background:linear-gradient(135deg, rgba(90,214,255,0.2), rgba(196,123,255,0.15));border:1px solid rgba(90,214,255,0.33);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--text);">
+            <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(circle at 30% 50%, rgba(90,214,255,0.33), transparent 70%);filter:blur(40px);"></div>
+            <div style="position:relative;text-align:center;padding:24px;">
+              <div aria-hidden="true" style={`width:96px;height:96px;border-radius:50%;background:var(--text);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto;box-shadow:0 0 40px ${accent};`}>▶</div>
+              <div class="display" style="font-size:clamp(22px,2.6vw,28px);margin-top:20px;font-weight:700;">Watch the demo</div>
+              <div class="sans" style="font-size:14px;color:var(--text-soft);margin-top:6px;">2-minute walkthrough · opens in Drive</div>
+            </div>
+          </a>
+          <div style="padding:28px;border-radius:20px;background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column;justify-content:space-between;gap:20px;">
+            <div>
+              <span class="label cyan">MISSION</span>
+              <div class="display" style="font-size:clamp(20px,2.4vw,28px);margin-top:12px;line-height:1.2;font-weight:700;letter-spacing:-0.01em;">
+                Every student deserves a great tutor — regardless of where they were born.
+              </div>
+            </div>
+            <a href="http://plaito.ai" target="_blank" rel="noopener noreferrer" class="btn" style={`background:${accent};color:var(--bg);justify-content:center;`}>Visit plaito.ai →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top:60px;padding-bottom:40px;">
+        <div class="stats-bar stats-card" style="padding:32px 40px;background:var(--surface);border:1px solid var(--border);border-radius:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+          {stats.map((s, i) => (
+            <div style={`border-left:${i > 0 ? '1px solid var(--border)' : 'none'};padding-left:${i > 0 ? '32px' : '0'};`}>
+              <div class="display" style={`font-size:clamp(36px,5vw,56px);font-weight:700;line-height:1;color:${accent};letter-spacing:-0.03em;`}>{s.v}</div>
+              <div class="sans" style="margin-top:10px;font-size:14px;color:var(--text-soft);">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section two-col" style="padding-top:40px;padding-bottom:80px;display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start;">
+        <article class="sans" style="font-size:clamp(16px,1.7vw,19px);line-height:1.7;color:var(--text-soft);">
+          <h2 class="display story-title" style="line-height:1.05;color:var(--text);font-weight:700;letter-spacing:-0.02em;margin-top:0;">The product worked. The business didn't.</h2>
+          <p>After SISU I went all-in on something I cared about more than money — education. I'd spent twenty years watching the financial barrier between students and great teachers harden into permanent inequality. Plaito was built to dissolve it.</p>
+          <p>We shipped an AI tutor that worked across 40 languages and reached <strong style="color:var(--text);">1M+ downloads in 180 countries</strong> with 130k weekly active users. The product was loved. Students wrote us long emails about test scores, college acceptances, parents who finally understood algebra alongside them.</p>
+          <blockquote style="margin:32px 0;padding:24px 28px;border-radius:14px;background:linear-gradient(135deg, rgba(90,214,255,0.1), rgba(90,214,255,0.04));border:1px solid rgba(90,214,255,0.2);">
+            <p class="display" style="font-size:clamp(20px,2.6vw,28px);line-height:1.25;color:var(--text);font-style:italic;margin:0;font-weight:600;">
+              "We built it for the kid who can't afford a tutor. That kid loved it. That kid couldn't pay for it."
+            </p>
+          </blockquote>
+          <p>The economics never resolved. Inference costs at our usage levels outran our pricing in the markets we cared about most. We tried six different monetization paths. None of them honored the original mission while keeping the lights on.</p>
+          <p>I closed Plaito in 2024. It is the most valuable failure of my life. I am still going to fix this — just not yet, and not the same way. The next attempt will be hardware-aware, agent-native, and built on top of a cost curve that didn't exist when we started.</p>
+        </article>
+
+        <aside style="display:flex;flex-direction:column;gap:16px;position:sticky;top:90px;">
+          <div style="padding:20px;border-radius:14px;background:var(--surface);border:1px solid var(--border);">
+            <span class="label cyan">WHAT WE LEARNED</span>
+            <ul style="padding-left:18px;margin:14px 0 0;color:var(--text-soft);font-size:14px;line-height:1.7;">
+              <li>Distribution beats virality — we should have built for schools, not students</li>
+              <li>Free-to-paid conversion in education is brutal in low-income markets</li>
+              <li>The product had genuine pull — the GTM didn't</li>
+              <li>Mission-led companies still need a working business model</li>
+            </ul>
+          </div>
+          <div style="padding:20px;border-radius:14px;background:linear-gradient(135deg, rgba(90,214,255,0.12), rgba(196,123,255,0.08));border:1px solid rgba(90,214,255,0.33);">
+            <span class="label cyan">I'LL BE BACK</span>
+            <div class="display" style="font-size:clamp(18px,2.2vw,22px);margin-top:12px;line-height:1.25;font-weight:600;">
+              Education is the highest-ROI investment a person can ever make. I'm not done.
+            </div>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </div>
+</Layout>

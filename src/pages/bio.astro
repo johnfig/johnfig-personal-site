@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const milestones: [string, string, string][] = [
+  ['EARLY', 'Northern California · video stores',      'var(--accent-4)'],
+  ['HS',    'Top-15 in the country, distance running', 'var(--accent-3)'],
+  ['2010',  'Univ. of Oregon · BS Business',           'var(--text)'],
+  ['2014',  'Goodshop · Software Engineer',            'var(--accent-2)'],
+  ['2016',  'Teespring · Sr Eng Manager · $60M',       'var(--accent-2)'],
+  ['2017',  'SISU Extracts · founded',                 'var(--accent)'],
+  ['2022',  '$100M exit · $1B transaction',            'var(--accent)'],
+  ['2022',  'Plaito · 1M+ downloads',                  'var(--accent-2)'],
+  ['2024',  'SISU Ventures · CEO',                     'var(--accent-3)'],
+  ['NOW',   'Building. Writing. Family.',              'var(--accent)'],
+];
+---
+<Layout title="Bio — John Figueiredo" active="Bio" description="From driving limos to a $100M exit — the long version of John Figueiredo's story.">
+  <div style="position:relative;overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute;top:-10%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(90,214,255,0.15), transparent 70%);filter:blur(80px);z-index:0;"></div>
+
+    <div style="position:relative;z-index:1;">
+      <section class="section" style="padding-top:100px;padding-bottom:40px;">
+        <span class="label">BIO — THE LONG VERSION</span>
+        <h1 class="display hero-title-md" style="line-height:0.92;letter-spacing:-0.04em;margin:20px 0 0;font-weight:700;max-width:1200px;">
+          From the back seat<br/>
+          <span style="background:linear-gradient(90deg, var(--accent), var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;">of a limo</span>
+          to a<br/>nine-figure exit<span style="color:var(--accent-3);">.</span>
+        </h1>
+      </section>
+
+      <section class="section two-col" style="padding-top:40px;padding-bottom:100px;display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start;">
+        <article class="sans" style="font-size:clamp(16px,1.7vw,19px);line-height:1.7;color:var(--text-soft);">
+          <p style="margin:0;">
+            <span class="display" style="float:left;font-size:96px;line-height:0.85;color:var(--accent);margin-right:14px;margin-top:6px;font-weight:700;">I</span>
+            grew up in a small town in Northern California. My family ran a chain of video stores for thirty years — renting movies to farmers up in the hills who didn't have reliable internet. The same farmers I'd later partner with to build a cannabis distillate company. Long before any of that, I was driving limos and sleeping in my Honda Civic to pay for the night classes that taught me how to code.
+          </p>
+          <p>
+            Self-taught engineering took me to Goodshop, Pivotal Labs, then Teespring as a senior engineering manager — leading a global team of eleven and helping build a $60M revenue stream in a year. Engineering taught me how to ship; managing taught me how to operate.
+          </p>
+          <blockquote style="margin:48px 0;padding:28px 32px;border-radius:16px;background:linear-gradient(135deg, rgba(158,255,90,0.1), rgba(90,214,255,0.08));border:1px solid var(--border);">
+            <p class="display" style="font-size:clamp(24px,3.5vw,38px);line-height:1.2;color:var(--text);font-style:italic;margin:0;font-weight:600;letter-spacing:-0.01em;">
+              "Time is the most valuable asset we have. The whole point is to earn enough of it back to spend it on things that actually matter."
+            </p>
+          </blockquote>
+          <p>
+            In 2017 I co-founded <strong style="color:var(--accent);font-weight:600;">SISU Extracts</strong> with Joe Wynne and Shannon Byers. The pitch was simple: build the most reliable distillate in California, and pay farmers a 70/30 split in their favor. Five years later we had grown from inception to <strong style="color:var(--text);font-weight:600;">$101M in annual revenue</strong> and were acquired in a $1B transaction with Jay-Z as Chief Visionary Officer. SISU is now employee-owned.
+          </p>
+          <p>
+            After SISU I went all-in on something I deeply care about — education. I founded <strong style="color:var(--accent-2);font-weight:600;">Plaito</strong>, an AI tutor designed to dissolve the financial barrier between a student and a great teacher. We hit a million downloads, 130,000 weekly active users across 180 countries, in 40 languages. Ultimately the business didn't work — but the mission still does, and I'll keep returning to it.
+          </p>
+          <p>
+            Today I run <strong style="color:var(--accent-3);font-weight:600;">SISU Ventures</strong> from San Francisco, building a value-add real estate portfolio in cash-flowing markets. I write about frameworks, habits, and the slow patient work of compounding. And when I'm not building, I'm with my wife and son — the reason any of it matters.
+          </p>
+          <p>
+            Before all of this I was a runner — top fifteen in the country in high school for distance — and I still chase miles most mornings. The discipline that builds a company is the same discipline that builds a body of work. Show up. Suffer well. Compound.
+          </p>
+        </article>
+
+        <aside style="display:flex;flex-direction:column;gap:32px;position:sticky;top:90px;">
+          <div style="position:relative;">
+            <div aria-hidden="true" style="position:absolute;inset:-10px;background:linear-gradient(135deg, var(--accent-3), var(--accent-4));border-radius:16px;opacity:0.4;filter:blur(20px);"></div>
+            <div role="img" aria-label="Family portrait" style="position:relative;width:100%;aspect-ratio:3/4;background-image:url('/assets/family.png');background-size:cover;background-position:center;border-radius:12px;border:1px solid var(--border);"></div>
+          </div>
+          <div style="font-size:13px;color:var(--text-dim);font-style:italic;text-align:center;">
+            With my wife and son — the reason for everything.
+          </div>
+
+          <div style="padding:24px;border-radius:16px;background:var(--surface);border:1px solid var(--border);">
+            <span class="label cyan">SELECTED TIMELINE</span>
+            <div style="margin-top:16px;">
+              {milestones.map((m, i) => (
+                <div style={`display:grid;grid-template-columns:70px 1fr;padding:12px 0;border-bottom:${i < milestones.length - 1 ? '1px solid var(--border)' : 'none'};align-items:baseline;gap:12px;`}>
+                  <span class="mono" style={`font-size:11px;color:${m[2]};letter-spacing:0.15em;`}>{m[0]}</span>
+                  <span class="sans" style="font-size:14px;color:var(--text);line-height:1.4;">{m[1]}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </div>
+</Layout>

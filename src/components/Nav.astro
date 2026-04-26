@@ -1,0 +1,37 @@
+---
+type Active = 'Home' | 'Bio' | 'Feed' | 'Contact';
+interface Props { active: Active }
+const { active } = Astro.props;
+const items: { name: Active; href: string }[] = [
+  { name: 'Home',    href: '/' },
+  { name: 'Bio',     href: '/bio' },
+  { name: 'Feed',    href: '/feed' },
+  { name: 'Contact', href: '/contact' },
+];
+---
+<header class="nav-wrap" style="display:flex;justify-content:space-between;align-items:center;padding:20px clamp(20px,4vw,48px);background:rgba(10,10,12,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;">
+  <a href="/" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
+    <span aria-hidden="true" style="width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--accent), var(--accent-2) 60%, var(--accent-4));box-shadow:0 0 20px rgba(158,255,90,0.4);flex-shrink:0;"></span>
+    <span class="display" style="font-size:clamp(16px,2.5vw,20px);color:var(--text);letter-spacing:-0.02em;font-weight:600;white-space:nowrap;">John Figueiredo</span>
+  </a>
+
+  <nav class="nav-desktop" style="display:flex;gap:4px;align-items:center;padding:4px;background:var(--surface);border:1px solid var(--border);border-radius:999px;">
+    {items.map((it) => {
+      const isActive = active === it.name;
+      const style = `text-decoration:none;padding:8px 18px;border-radius:999px;font-size:13px;font-weight:500;font-family:'Geist','Inter',sans-serif;transition:all 0.2s;${isActive ? 'color:var(--bg);background:var(--accent);' : 'color:var(--text-soft);background:transparent;'}`;
+      return (
+        <a href={it.href} style={style}>{it.name}</a>
+      );
+    })}
+  </nav>
+
+  <button class="nav-mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+  </button>
+</header>
+
+<div class="nav-mobile-drawer" role="dialog" aria-label="Mobile navigation">
+  {items.map((it) => (
+    <a href={it.href} class={active === it.name ? 'active' : ''}>{it.name}</a>
+  ))}
+</div>

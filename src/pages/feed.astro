@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const items = [
+  { kind: 'ESSAY',   d: 'APR 2026', t: 'On time as the only real currency',                  x: 'An update of a thesis I keep returning to: $0–$10K is education and side hustles. Education ROI is the highest there is when you have nothing to lose.', c: 'var(--accent)'   },
+  { kind: 'PROJECT', d: 'MAR 2026', t: 'SISU Ventures — Q1 portfolio update',                x: 'Three new acquisitions in cash-flowing markets. Notes on how I evaluate a building.',                                                                  c: 'var(--accent-3)' },
+  { kind: 'ESSAY',   d: 'FEB 2026', t: 'What Plaito got right (and what we got wrong)',       x: "We hit a million downloads in 180 countries. The product worked. The business didn't. Here's the honest postmortem.",                                  c: 'var(--accent-2)' },
+  { kind: 'NOTE',    d: 'JAN 2026', t: 'The $100M lesson nobody talks about',                 x: "An exit doesn't end the work. It clarifies it.",                                                                                                          c: 'var(--accent-4)' },
+  { kind: 'ESSAY',   d: 'DEC 2025', t: 'How I hire engineer #1',                              x: 'A checklist I keep coming back to, refined over four companies.',                                                                                         c: 'var(--accent)'   },
+  { kind: 'RUNNING', d: 'NOV 2025', t: 'Back on the track at 35',                             x: 'Pace work, lessons in patience, and what twenty years of running taught me about building.',                                                            c: 'var(--accent-3)' },
+];
+
+const filters = ['All', 'Essays', 'Projects', 'Notes', 'Running'];
+---
+<Layout title="Feed — John Figueiredo" active="Feed" description="Essays, projects, and notes from John Figueiredo on building, education, real estate, and compounding.">
+  <div style="position:relative;overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute;top:10%;left:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle, rgba(196,123,255,0.13), transparent 70%);filter:blur(80px);z-index:0;"></div>
+
+    <div style="position:relative;z-index:1;">
+      <section class="section feed-header" style="padding-top:100px;padding-bottom:40px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;">
+        <div>
+          <span class="label violet">FEED — ESSAYS · PROJECTS · NOTES</span>
+          <h1 class="display hero-title-md" style="line-height:0.92;letter-spacing:-0.04em;margin:20px 0 0;font-weight:700;">
+            Thinking<br/>out loud<span style="color:var(--accent-4);">.</span>
+          </h1>
+        </div>
+        <div class="filter-pills" style="display:flex;gap:8px;padding:6px;background:var(--surface);border:1px solid var(--border);border-radius:999px;flex-shrink:0;">
+          {filters.map((t, i) => (
+            <button type="button" style={`padding:8px 16px;border-radius:999px;border:none;cursor:pointer;background:${i === 0 ? 'var(--text)' : 'transparent'};color:${i === 0 ? 'var(--bg)' : 'var(--text-soft)'};font-family:'Geist','Inter',sans-serif;font-size:12px;font-weight:500;white-space:nowrap;`}>{t}</button>
+          ))}
+        </div>
+      </section>
+
+      <section class="section two-col" style="padding-top:40px;padding-bottom:80px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        {items.map((it) => (
+          <a href="#" style="position:relative;overflow:hidden;padding:32px;border-radius:20px;background:var(--surface);border:1px solid var(--border);text-decoration:none;color:var(--text);min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
+            <div aria-hidden="true" style={`position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle, ${it.c}, transparent 70%);opacity:0.2;filter:blur(30px);`}></div>
+            <div style="position:relative;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+                <span style={`padding:4px 10px;border-radius:999px;font-size:10px;font-family:'JetBrains Mono',monospace;letter-spacing:0.18em;color:${it.c};border:1px solid ${it.c};background:rgba(255,255,255,0.04);`}>{it.kind}</span>
+                <span class="mono" style="font-size:11px;color:var(--text-dim);letter-spacing:0.15em;">{it.d}</span>
+              </div>
+              <h2 class="display" style="font-size:clamp(22px,2.6vw,30px);line-height:1.1;letter-spacing:-0.02em;margin:0;font-weight:700;">{it.t}</h2>
+              <p class="sans" style="margin-top:12px;font-size:15px;line-height:1.55;color:var(--text-soft);font-weight:400;">{it.x}</p>
+            </div>
+            <div style="position:relative;display:flex;justify-content:flex-end;margin-top:16px;">
+              <span class="mono" style={`font-size:11px;color:${it.c};letter-spacing:0.2em;`}>READ →</span>
+            </div>
+          </a>
+        ))}
+      </section>
+    </div>
+  </div>
+</Layout>

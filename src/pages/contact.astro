@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const channels = [
+  { l: 'EMAIL',     v: 'hi@johnfigueiredo.com',  href: 'mailto:hi@johnfigueiredo.com',          c: 'var(--accent)'   },
+  { l: 'LINKEDIN',  v: '/in/john-fig',           href: 'https://www.linkedin.com/in/john-fig/', c: 'var(--accent-2)' },
+  { l: 'INSTAGRAM', v: '@fig.time',              href: 'https://www.instagram.com/fig.time',   c: 'var(--accent-3)' },
+  { l: 'X',         v: '@johnfig',               href: '#',                                     c: 'var(--accent-4)' },
+  { l: 'GITHUB',    v: '@johnfig',               href: '#',                                     c: 'var(--text)'     },
+];
+
+// TODO: Wire up Formspree
+//   1. Sign up at https://formspree.io (free tier = 50 submissions/month)
+//   2. Create a new form, copy your form ID (looks like "xyzabc123")
+//   3. Replace TODO_PASTE_YOUR_FORM_ID_HERE below with that ID
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/TODO_PASTE_YOUR_FORM_ID_HERE';
+---
+<Layout title="Contact — John Figueiredo" active="Contact" description="Get in touch with John Figueiredo. Email, LinkedIn, Instagram, or drop a message via the form.">
+  <div style="position:relative;overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0;">
+      <div style="position:absolute;top:20%;left:10%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle, rgba(158,255,90,0.2), transparent 70%);filter:blur(80px);"></div>
+      <div style="position:absolute;bottom:10%;right:10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle, rgba(90,214,255,0.15), transparent 70%);filter:blur(80px);"></div>
+    </div>
+
+    <div style="position:relative;z-index:1;">
+      <section class="section two-col" style="padding-top:100px;padding-bottom:80px;display:grid;grid-template-columns:1.2fr 1fr;gap:64px;">
+        <div>
+          <span class="label">SAY HI · INBOX OPEN</span>
+          <h1 class="display hero-title" style="line-height:0.9;letter-spacing:-0.045em;margin:20px 0 0;font-weight:700;">
+            Let's<br/>
+            <span style="background:linear-gradient(90deg, var(--accent), var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;">build.</span>
+          </h1>
+          <p class="sans" style="font-size:clamp(16px,1.7vw,19px);color:var(--text-soft);line-height:1.55;margin-top:28px;max-width:540px;">
+            I read every message. The best ones are about building, investing in education, real estate in cash-flowing markets, or coffee in San Francisco.
+          </p>
+
+          <div style="margin-top:56px;display:flex;flex-direction:column;gap:0;">
+            {channels.map((c) => (
+              <a href={c.href} class="channel-row" style="display:grid;grid-template-columns:120px 1fr auto;padding:24px 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);align-items:center;gap:16px;">
+                <span class="mono" style={`font-size:11px;letter-spacing:0.22em;color:${c.c};`}>{c.l}</span>
+                <span class="display" style="font-size:clamp(20px,2.6vw,28px);letter-spacing:-0.01em;font-weight:600;word-break:break-word;">{c.v}</span>
+                <span class="mono channel-status" style="font-size:11px;letter-spacing:0.22em;color:var(--text-dim);">OPEN ↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div style="position:relative;">
+          <div aria-hidden="true" style="position:absolute;inset:-2px;border-radius:22px;background:linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent-4));opacity:0.3;filter:blur(20px);"></div>
+          <div style="position:relative;padding:clamp(24px,4vw,36px);border-radius:20px;background:var(--surface);border:1px solid var(--border);">
+            <span class="label cyan">OR DROP A NOTE</span>
+            <div class="display" style="font-size:clamp(32px,4vw,44px);line-height:1;letter-spacing:-0.03em;margin-top:14px;font-weight:700;">
+              Quick message<span style="color:var(--accent-2);">.</span>
+            </div>
+
+            <form action={FORMSPREE_ENDPOINT} method="POST" style="margin-top:28px;display:flex;flex-direction:column;gap:16px;">
+              <label style="display:flex;flex-direction:column;gap:8px;">
+                <span class="mono" style="font-size:10px;letter-spacing:0.22em;color:var(--text-dim);">NAME</span>
+                <input type="text" name="name" required style="height:48px;background:var(--bg-deep);border:1px solid var(--border);outline:none;padding:0 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:15px;border-radius:8px;" />
+              </label>
+              <label style="display:flex;flex-direction:column;gap:8px;">
+                <span class="mono" style="font-size:10px;letter-spacing:0.22em;color:var(--text-dim);">EMAIL</span>
+                <input type="email" name="email" required style="height:48px;background:var(--bg-deep);border:1px solid var(--border);outline:none;padding:0 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:15px;border-radius:8px;" />
+              </label>
+              <label style="display:flex;flex-direction:column;gap:8px;">
+                <span class="mono" style="font-size:10px;letter-spacing:0.22em;color:var(--text-dim);">MESSAGE</span>
+                <textarea name="message" required style="height:140px;background:var(--bg-deep);border:1px solid var(--border);outline:none;padding:14px;color:var(--text);font-family:'Inter',sans-serif;font-size:15px;resize:none;border-radius:8px;"></textarea>
+              </label>
+              <button type="submit" class="btn btn-primary" style="margin-top:12px;justify-content:center;">SEND →</button>
+            </form>
+            <div style="margin-top:16px;font-size:13px;color:var(--text-dim);font-style:italic;">
+              I reply within 48 hours.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
