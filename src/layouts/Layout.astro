@@ -108,6 +108,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       /* Section padding fluid */
       .section { padding-left: clamp(20px, 4vw, 48px); padding-right: clamp(20px, 4vw, 48px); }
 
+      /* Fold: hero + stats fill viewport on desktop, with stats pinned to the bottom edge */
+      @media (min-width: 901px) {
+        .hero-fold {
+          min-height: calc(100vh - 72px);
+          display: flex;
+          flex-direction: column;
+        }
+        .hero-fold .hero-grid { flex: 1; }
+        .hero-fold .hero-stats { margin-top: auto; }
+      }
+
       /* Tablet */
       @media (max-width: 900px) {
         .two-col { grid-template-columns: 1fr !important; gap: 36px !important; }
