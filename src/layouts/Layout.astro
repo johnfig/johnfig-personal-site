@@ -99,7 +99,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       @keyframes fadein { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: translateY(0) } }
 
       /* Fluid hero typography */
-      h1.hero-title    { font-size: clamp(56px, 12vw, 156px); }
+      h1.hero-title    { font-size: clamp(48px, 8.5vw, 116px); }
       h1.hero-title-md { font-size: clamp(48px, 10vw, 132px); }
       h2.section-title { font-size: clamp(44px, 8vw, 88px); }
       h2.story-title   { font-size: clamp(32px, 5vw, 48px); }
@@ -114,24 +114,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         .four-col { grid-template-columns: repeat(2, 1fr) !important; }
         .three-col { grid-template-columns: 1fr !important; }
         .two-col-stats { grid-template-columns: 1fr 1fr !important; }
-        .stats-bar { grid-template-columns: repeat(2, 1fr) !important; }
-        .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding-top: 60px !important; padding-bottom: 60px !important; }
+        .stats-bar { grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
+        .hero-grid { grid-template-columns: 1fr !important; gap: 28px !important; padding-top: 32px !important; padding-bottom: 24px !important; }
+        .hero-grid .portrait-wrap { max-width: 280px !important; }
         .timeline-grid > div { padding: 8px 0 36px 24px !important; text-align: left !important; }
         .timeline-grid::before, .timeline-line { display: none !important; }
         .feed-header { flex-direction: column !important; align-items: flex-start !important; gap: 24px !important; }
         .filter-pills { overflow-x: auto !important; max-width: 100%; }
         .channel-row { grid-template-columns: 90px 1fr !important; }
         .channel-row .channel-status { display: none !important; }
-        .stats-card { padding: 24px !important; }
-        .stats-card > div { padding-left: 0 !important; border-left: none !important; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-        .stats-card > div:last-child { border-bottom: none; padding-bottom: 0; }
+        .stats-card { padding: 20px !important; }
+        .stats-card > div { padding-left: 0 !important; border-left: none !important; }
       }
 
       /* Phone */
       @media (max-width: 640px) {
-        .four-col, .stats-bar { grid-template-columns: 1fr !important; }
         .nav-desktop { display: none !important; }
         .nav-mobile-toggle { display: inline-flex !important; }
+        .hero-grid .portrait-wrap { max-width: 220px !important; }
+        h1.hero-title { font-size: clamp(44px, 14vw, 72px) !important; }
       }
 
       /* Mobile drawer */

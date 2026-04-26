@@ -2,18 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 
 const channels = [
-  { l: 'EMAIL',     v: 'hi@johnfigueiredo.com',  href: 'mailto:hi@johnfigueiredo.com',          c: 'var(--accent)'   },
-  { l: 'LINKEDIN',  v: '/in/john-fig',           href: 'https://www.linkedin.com/in/john-fig/', c: 'var(--accent-2)' },
-  { l: 'INSTAGRAM', v: '@fig.time',              href: 'https://www.instagram.com/fig.time',   c: 'var(--accent-3)' },
-  { l: 'X',         v: '@johnfig',               href: '#',                                     c: 'var(--accent-4)' },
-  { l: 'GITHUB',    v: '@johnfig',               href: '#',                                     c: 'var(--text)'     },
+  { l: 'EMAIL',     v: 'john@johnfigueiredo.com', href: 'mailto:john@johnfigueiredo.com',        c: 'var(--accent)'   },
+  { l: 'LINKEDIN',  v: '/in/john-fig',            href: 'https://www.linkedin.com/in/john-fig/', c: 'var(--accent-2)' },
+  { l: 'INSTAGRAM', v: '@fig.time',               href: 'https://www.instagram.com/fig.time',   c: 'var(--accent-3)' },
+  { l: 'X',         v: '@johnfig',                href: '#',                                     c: 'var(--accent-4)' },
+  { l: 'GITHUB',    v: '@johnfig',                href: '#',                                     c: 'var(--text)'     },
 ];
 
-// TODO: Wire up Formspree
-//   1. Sign up at https://formspree.io (free tier = 50 submissions/month)
-//   2. Create a new form, copy your form ID (looks like "xyzabc123")
-//   3. Replace TODO_PASTE_YOUR_FORM_ID_HERE below with that ID
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/TODO_PASTE_YOUR_FORM_ID_HERE';
+// FormSubmit — no signup needed. After your first submission, FormSubmit will email
+// john@johnfigueiredo.com a one-time confirmation link. Click it once and the form is live.
+const FORM_ENDPOINT = 'https://formsubmit.co/john@johnfigueiredo.com';
+const THANKYOU_URL  = 'https://www.johnfigueiredo.com/contact?sent=1';
 ---
 <Layout title="Contact — John Figueiredo" active="Contact" description="Get in touch with John Figueiredo. Email, LinkedIn, Instagram, or drop a message via the form.">
   <div style="position:relative;overflow:hidden;">
@@ -53,7 +52,17 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/TODO_PASTE_YOUR_FORM_ID_HERE'
               Quick message<span style="color:var(--accent-2);">.</span>
             </div>
 
-            <form action={FORMSPREE_ENDPOINT} method="POST" style="margin-top:28px;display:flex;flex-direction:column;gap:16px;">
+            <div id="form-success" style="display:none;margin-top:24px;padding:16px 20px;border-radius:12px;background:rgba(158,255,90,0.1);border:1px solid rgba(158,255,90,0.4);color:var(--accent);font-size:14px;">
+              ✓ Message sent. I'll reply within 48 hours.
+            </div>
+
+            <form action={FORM_ENDPOINT} method="POST" style="margin-top:28px;display:flex;flex-direction:column;gap:16px;">
+              <input type="hidden" name="_subject" value="New message from johnfigueiredo.com" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value={THANKYOU_URL} />
+              <input type="text" name="_honey" style="display:none;" tabindex="-1" autocomplete="off" />
+
               <label style="display:flex;flex-direction:column;gap:8px;">
                 <span class="mono" style="font-size:10px;letter-spacing:0.22em;color:var(--text-dim);">NAME</span>
                 <input type="text" name="name" required style="height:48px;background:var(--bg-deep);border:1px solid var(--border);outline:none;padding:0 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:15px;border-radius:8px;" />
@@ -76,4 +85,14 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/TODO_PASTE_YOUR_FORM_ID_HERE'
       </section>
     </div>
   </div>
+
+  <script is:inline>
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      const el = document.getElementById('form-success');
+      if (el) {
+        el.style.display = 'block';
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  </script>
 </Layout>
