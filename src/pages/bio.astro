@@ -6,8 +6,8 @@ const milestones: [string, string, string][] = [
   ['HS',    'Top-15 in the country, distance running',      'var(--accent-3)'],
   ['2010',  'Oregon · D1 running, BS Business',             'var(--text)'],
   ['2010',  'SF · limo driver, Airbnb host, 16-unit ops',   'var(--text-soft)'],
-  ['2012',  'GoPayGo · self-taught back-end engineering',   'var(--accent-2)'],
-  ['2014',  'Byliner · Pivotal Labs',                       'var(--accent-2)'],
+  ['2012',  'Gopago · self-taught back-end engineering',    'var(--accent-2)'],
+  ['2014',  'Byliner · Goodshop',                            'var(--accent-2)'],
   ['2016',  'Teespring · Sr Eng Manager · $60M built',      'var(--accent-2)'],
   ['2017',  'SISU Extracts · founded',                      'var(--accent)'],
   ['2022',  '$100M exit · $1B transaction',                 'var(--accent)'],
@@ -68,10 +68,9 @@ const breadcrumbSchema = {
     <div style="position:relative;z-index:1;">
       <section class="section" style="padding-top:100px;padding-bottom:40px;">
         <span class="label">BIO — THE LONG VERSION</span>
-        <h1 class="display hero-title-md" style="line-height:0.92;letter-spacing:-0.04em;margin:20px 0 0;font-weight:700;max-width:1200px;">
-          From the back seat<br/>
-          <span style="background:linear-gradient(90deg, var(--accent), var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;">of a limo</span>
-          to a<br/>nine-figure exit<span style="color:var(--accent-3);">.</span>
+        <h1 class="display hero-title-md" style="line-height:0.92;letter-spacing:-0.04em;margin:20px 0 0;font-weight:700;max-width:1200px;font-size:clamp(34px, 9.5vw, 132px);">
+          From driving a limo<br/>
+          to a <span style="background:linear-gradient(90deg, var(--accent), var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;">nine-figure exit</span><span style="color:var(--accent-3);">.</span>
         </h1>
       </section>
 
@@ -85,7 +84,7 @@ const breadcrumbSchema = {
             I moved to San Francisco in 2010 because that's where the world's best operators were, and I knew you don't get world-class without competing against the best. To survive on $15/hour I drove a limo at night and slept in it; rented out my apartment on Airbnb to cover rent; and managed a 16-unit building on the side. Side-hustle economics taught me more about leverage than any book.
           </p>
           <p>
-            I caught a break in customer service at <strong style="color:var(--text);">GoPayGo</strong>, a venture-backed startup, and taught myself back-end engineering at night. From there I went to <strong style="color:var(--text);">Byliner</strong>, then <strong style="color:var(--text);">Pivotal Labs</strong>, then <strong style="color:var(--text);">Teespring</strong> as a senior engineering manager — leading a global team of eleven, building a $60M revenue stream in a year when the company had 60 days to survive, and shipping a weekend project that drove $1M/month in profit. Teespring offered me VP of Engineering. I turned it down to start my own company. Engineering taught me how to ship; managing taught me how to operate.
+            I caught a break in customer service at <strong style="color:var(--text);">Gopago</strong>, a venture-backed startup, and taught myself back-end engineering at night. From there I went to <strong style="color:var(--text);">Byliner</strong>, then <strong style="color:var(--text);">Goodshop</strong>, then <strong style="color:var(--text);">Teespring</strong> as a senior engineering manager — leading a global team of eleven, building a $60M revenue stream in a year when the company had 60 days to survive, and shipping a weekend project that drove $1M/month in profit. Teespring offered me VP of Engineering. I turned it down to start my own company. Engineering taught me how to ship; managing taught me how to operate.
           </p>
           <blockquote style="margin:48px 0;padding:28px 32px;border-radius:16px;background:linear-gradient(135deg, rgba(158,255,90,0.1), rgba(90,214,255,0.08));border:1px solid var(--border);">
             <p class="display" style="font-size:clamp(24px,3.5vw,38px);line-height:1.2;color:var(--text);font-style:italic;margin:0;font-weight:600;letter-spacing:-0.01em;">
@@ -99,7 +98,7 @@ const breadcrumbSchema = {
             After SISU I went all-in on something I deeply care about — education. I founded <strong style="color:var(--accent-2);font-weight:600;">Plaito</strong>, an AI tutor designed to dissolve the financial barrier between a student and a great teacher. We hit a million downloads, 130,000 weekly active users across 180 countries, in 40 languages. Ultimately the business didn't work — but the mission still does, and I'll keep returning to it.
           </p>
           <p>
-            Today I live in the <strong style="color:var(--text);font-weight:600;">Sierra foothills</strong> with my wife and son, running a deliberately lifestyle-shaped business: managing a real estate portfolio through <strong style="color:var(--accent-3);font-weight:600;">SISU Ventures</strong>, and incubating and investing in companies I want to spend time around. I write about frameworks, habits, and the slow patient work of compounding. The whole point of building was always to earn back the time to do this — and the family it's for is the reason any of it matters.
+            Today I live in the <strong style="color:var(--text);font-weight:600;">Sierra foothills</strong> with my wife and two sons, running a deliberately lifestyle-shaped business: managing a real estate portfolio through <strong style="color:var(--accent-3);font-weight:600;">SISU Ventures</strong>, and incubating and investing in companies I want to spend time around. I write about frameworks, habits, and the slow patient work of compounding. The whole point of building was always to earn back the time to do this — and the family it's for is the reason any of it matters.
           </p>
           <p>
             Before all of this I was a runner — top fifteen in the country in high school for distance — and I still chase miles most mornings. The discipline that builds a company is the same discipline that builds a body of work. Show up. Suffer well. Compound.
@@ -112,7 +111,7 @@ const breadcrumbSchema = {
             <div role="img" aria-label="Family portrait" style="position:relative;width:100%;aspect-ratio:3/4;background-image:url('/assets/family.png');background-size:cover;background-position:center;border-radius:12px;border:1px solid var(--border);"></div>
           </div>
           <div style="font-size:13px;color:var(--text-dim);font-style:italic;text-align:center;">
-            With my wife and son — the reason for everything.
+            With my wife and two sons — the reason for everything.
           </div>
 
           <div style="padding:24px;border-radius:16px;background:var(--surface);border:1px solid var(--border);">
