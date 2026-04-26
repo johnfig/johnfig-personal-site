@@ -2,16 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 
 const milestones: [string, string, string][] = [
-  ['EARLY', 'Northern California · video stores',      'var(--accent-4)'],
-  ['HS',    'Top-15 in the country, distance running', 'var(--accent-3)'],
-  ['2010',  'Univ. of Oregon · BS Business',           'var(--text)'],
-  ['2014',  'Goodshop · Software Engineer',            'var(--accent-2)'],
-  ['2016',  'Teespring · Sr Eng Manager · $60M',       'var(--accent-2)'],
-  ['2017',  'SISU Extracts · founded',                 'var(--accent)'],
-  ['2022',  '$100M exit · $1B transaction',            'var(--accent)'],
-  ['2022',  'Plaito · 1M+ downloads',                  'var(--accent-2)'],
-  ['2024',  'SISU Ventures · CEO',                     'var(--accent-3)'],
-  ['NOW',   'Building. Writing. Family.',              'var(--accent)'],
+  ['EARLY', 'Northern California · video stores',           'var(--accent-4)'],
+  ['HS',    'Top-15 in the country, distance running',      'var(--accent-3)'],
+  ['2010',  'Oregon · D1 running, BS Business',             'var(--text)'],
+  ['2010',  'SF · limo driver, Airbnb host, 16-unit ops',   'var(--text-soft)'],
+  ['2012',  'GoPayGo · self-taught back-end engineering',   'var(--accent-2)'],
+  ['2014',  'Byliner · Pivotal Labs',                       'var(--accent-2)'],
+  ['2016',  'Teespring · Sr Eng Manager · $60M built',      'var(--accent-2)'],
+  ['2017',  'SISU Extracts · founded',                      'var(--accent)'],
+  ['2022',  '$100M exit · $1B transaction',                 'var(--accent)'],
+  ['2022',  'Plaito · 1M+ downloads',                       'var(--accent-2)'],
+  ['2024',  'SISU Ventures · CEO',                          'var(--accent-3)'],
+  ['NOW',   'Building. Writing. Family.',                   'var(--accent)'],
 ];
 ---
 <Layout title="Bio — John Figueiredo" active="Bio" description="From driving limos to a $100M exit — the long version of John Figueiredo's story.">
@@ -32,10 +34,13 @@ const milestones: [string, string, string][] = [
         <article class="sans" style="font-size:clamp(16px,1.7vw,19px);line-height:1.7;color:var(--text-soft);">
           <p style="margin:0;">
             <span class="display" style="float:left;font-size:96px;line-height:0.85;color:var(--accent);margin-right:14px;margin-top:6px;font-weight:700;">I</span>
-            grew up in a small town in Northern California. My family ran a chain of video stores for thirty years — renting movies to farmers up in the hills who didn't have reliable internet. The same farmers I'd later partner with to build a cannabis distillate company. Long before any of that, I was driving limos and sleeping in my Honda Civic to pay for the night classes that taught me how to code.
+            grew up in a small town in Northern California. My family ran a chain of video stores for thirty years — renting movies to farmers up in the hills who didn't have reliable internet. The same farmers I'd later partner with to build a cannabis distillate company. I was a top-fifteen distance runner in the country in high school, ran D1 at Oregon, and lost it to nerve damage in my foot. The piece of me that felt special was gone — and I spent the next decade trying to figure out what would replace it.
           </p>
           <p>
-            Self-taught engineering took me to Goodshop, Pivotal Labs, then Teespring as a senior engineering manager — leading a global team of eleven and helping build a $60M revenue stream in a year. Engineering taught me how to ship; managing taught me how to operate.
+            I moved to San Francisco in 2010 because that's where the world's best operators were, and I knew you don't get world-class without competing against the best. To survive on $15/hour I drove a limo at night and slept in it; rented out my apartment on Airbnb to cover rent; and managed a 16-unit building on the side. Side-hustle economics taught me more about leverage than any book.
+          </p>
+          <p>
+            I caught a break in customer service at <strong style="color:var(--text);">GoPayGo</strong>, a venture-backed startup, and taught myself back-end engineering at night. From there I went to <strong style="color:var(--text);">Byliner</strong>, then <strong style="color:var(--text);">Pivotal Labs</strong>, then <strong style="color:var(--text);">Teespring</strong> as a senior engineering manager — leading a global team of eleven, building a $60M revenue stream in a year when the company had 60 days to survive, and shipping a weekend project that drove $1M/month in profit. Teespring offered me VP of Engineering. I turned it down to start my own company. Engineering taught me how to ship; managing taught me how to operate.
           </p>
           <blockquote style="margin:48px 0;padding:28px 32px;border-radius:16px;background:linear-gradient(135deg, rgba(158,255,90,0.1), rgba(90,214,255,0.08));border:1px solid var(--border);">
             <p class="display" style="font-size:clamp(24px,3.5vw,38px);line-height:1.2;color:var(--text);font-style:italic;margin:0;font-weight:600;letter-spacing:-0.01em;">
