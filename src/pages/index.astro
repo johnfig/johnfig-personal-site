@@ -124,10 +124,20 @@ const itemListSchema = {
           </div>
         </div>
 
-        <!-- Portrait — floating, glowing -->
+        <!-- Portrait — floating, glowing. Real <img> with explicit dims and high
+             fetchpriority so the browser prioritizes this LCP element and reserves
+             space for it (no layout shift). -->
         <div class="portrait-wrap" style="position:relative;max-width:380px;width:100%;margin:0 auto;">
           <div aria-hidden="true" style="position:absolute;inset:-20px;border-radius:24px;background:conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent-4), var(--accent-3), var(--accent));filter:blur(40px);opacity:0.4;animation:spin 20s linear infinite;"></div>
-          <div role="img" aria-label="Portrait of John Figueiredo" style="position:relative;width:100%;aspect-ratio:1/1;background-image:url('/assets/portrait.jpeg');background-size:cover;background-position:center;border-radius:16px;border:1px solid var(--border);box-shadow:0 30px 80px rgba(0,0,0,0.6);"></div>
+          <img
+            src="/assets/portrait.jpeg"
+            alt="John Figueiredo, founder of SISU Extracts, Plaito, and SISU Ventures"
+            width="800"
+            height="800"
+            decoding="async"
+            fetchpriority="high"
+            style="position:relative;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:16px;border:1px solid var(--border);box-shadow:0 30px 80px rgba(0,0,0,0.6);"
+          />
           <div style="position:absolute;bottom:16px;left:16px;right:16px;padding:12px 16px;border-radius:10px;background:rgba(10,10,12,0.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
             <span class="mono" style="font-size:11px;color:var(--text-soft);letter-spacing:0.15em;">STATUS</span>
             <span class="mono" style="font-size:11px;color:var(--accent);letter-spacing:0.15em;display:flex;align-items:center;gap:8px;">

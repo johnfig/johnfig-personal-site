@@ -2,11 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 
 const channels = [
-  { l: 'EMAIL',     v: 'john@johnfigueiredo.com', href: 'mailto:john@johnfigueiredo.com',        c: 'var(--accent)'   },
-  { l: 'LINKEDIN',  v: '/in/john-fig',            href: 'https://www.linkedin.com/in/john-fig/', c: 'var(--accent-2)' },
-  { l: 'INSTAGRAM', v: '@fig.time',               href: 'https://www.instagram.com/fig.time',   c: 'var(--accent-3)' },
-  { l: 'X',         v: '@johnfig',                href: '#',                                     c: 'var(--accent-4)' },
-  { l: 'GITHUB',    v: '@johnfig',                href: '#',                                     c: 'var(--text)'     },
+  { l: 'EMAIL',     v: 'john@johnfigueiredo.com', href: 'mailto:john@johnfigueiredo.com',         c: 'var(--accent)'   },
+  { l: 'LINKEDIN',  v: '/in/john-fig',            href: 'https://www.linkedin.com/in/john-fig/',  c: 'var(--accent-2)' },
+  { l: 'INSTAGRAM', v: '@fig.time',               href: 'https://www.instagram.com/fig.time',    c: 'var(--accent-3)' },
+  { l: 'X',         v: '@fig_time_',              href: 'https://x.com/fig_time_',                c: 'var(--accent-4)' },
+  { l: 'GITHUB',    v: '@johnfig',                href: 'https://github.com/johnfig',             c: 'var(--text)'     },
 ];
 
 // FormSubmit — no signup needed. After your first submission, FormSubmit will email
@@ -28,6 +28,8 @@ const contactSchema = {
     sameAs: [
       'https://www.linkedin.com/in/john-fig/',
       'https://www.instagram.com/fig.time/',
+      'https://x.com/fig_time_',
+      'https://github.com/johnfig',
     ],
   },
 };
@@ -66,13 +68,18 @@ const breadcrumbSchema = {
           </p>
 
           <div style="margin-top:56px;display:flex;flex-direction:column;gap:0;">
-            {channels.map((c) => (
-              <a href={c.href} class="channel-row" style="display:grid;grid-template-columns:120px 1fr auto;padding:24px 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);align-items:center;gap:16px;">
-                <span class="mono" style={`font-size:11px;letter-spacing:0.22em;color:${c.c};`}>{c.l}</span>
-                <span class="display" style="font-size:clamp(20px,2.6vw,28px);letter-spacing:-0.01em;font-weight:600;word-break:break-word;">{c.v}</span>
-                <span class="mono channel-status" style="font-size:11px;letter-spacing:0.22em;color:var(--text-dim);">OPEN ↗</span>
-              </a>
-            ))}
+            {channels.map((c) => {
+              const isExternal = c.href.startsWith('http');
+              const rel = isExternal ? (c.l === 'EMAIL' ? 'noopener' : 'me noopener') : undefined;
+              const target = isExternal ? '_blank' : undefined;
+              return (
+                <a href={c.href} class="channel-row" rel={rel} target={target} style="display:grid;grid-template-columns:120px 1fr auto;padding:24px 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);align-items:center;gap:16px;">
+                  <span class="mono" style={`font-size:11px;letter-spacing:0.22em;color:${c.c};`}>{c.l}</span>
+                  <span class="display" style="font-size:clamp(20px,2.6vw,28px);letter-spacing:-0.01em;font-weight:600;word-break:break-word;">{c.v}</span>
+                  <span class="mono channel-status" style="font-size:11px;letter-spacing:0.22em;color:var(--text-dim);">OPEN ↗</span>
+                </a>
+              );
+            })}
           </div>
         </div>
 

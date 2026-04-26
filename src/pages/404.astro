@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const popular = [
+  { href: '/',                          title: 'Home',                   d: 'Founder, builder, investor.' },
+  { href: '/bio',                       title: 'Bio',                    d: 'From limo driver to a $100M exit.' },
+  { href: '/ventures/sisu-extracts',    title: 'SISU Extracts',          d: '$0 → $101M ARR · $100M exit.' },
+  { href: '/ventures/plaito',           title: 'Plaito',                 d: '1M+ downloads in 180 countries.' },
+  { href: '/ventures/sisu-ventures',    title: 'SISU Ventures',          d: 'Value-add real estate.' },
+  { href: '/contact',                   title: 'Contact',                d: 'Inbox open.' },
+];
+---
+<Layout
+  title="404 — Page not found · John Figueiredo"
+  description="That page doesn't exist. Try one of the links below."
+  active="Home"
+  noIndex={true}
+>
+  <div style="position:relative;overflow:hidden;min-height:calc(100vh - 84px);">
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0;">
+      <div style="position:absolute;top:10%;left:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle, rgba(255,107,61,0.18), transparent 70%);filter:blur(80px);"></div>
+      <div style="position:absolute;bottom:0;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(196,123,255,0.13), transparent 70%);filter:blur(80px);"></div>
+    </div>
+
+    <section class="section" style="position:relative;z-index:1;padding-top:120px;padding-bottom:80px;max-width:900px;margin:0 auto;">
+      <span class="label ember">404 · NOT FOUND</span>
+      <h1 class="display hero-title-md" style="line-height:0.9;letter-spacing:-0.04em;margin:20px 0 0;font-weight:700;">
+        Wrong turn<span style="color:var(--accent-3);">.</span>
+      </h1>
+      <p class="sans" style="font-size:clamp(16px,1.6vw,18px);color:var(--text-soft);line-height:1.55;margin-top:24px;max-width:560px;">
+        That page doesn't exist (or moved). No big deal — here's where everything lives:
+      </p>
+
+      <ul style="list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">
+        {popular.map((p) => (
+          <li>
+            <a href={p.href} style="display:block;padding:20px 22px;border-radius:14px;background:var(--surface);border:1px solid var(--border);text-decoration:none;color:var(--text);transition:transform 0.2s ease, border-color 0.2s ease;">
+              <div class="display" style="font-size:18px;font-weight:600;letter-spacing:-0.01em;">{p.title}</div>
+              <div class="sans" style="margin-top:6px;font-size:14px;color:var(--text-soft);">{p.d}</div>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div style="margin-top:48px;font-size:13px;color:var(--text-dim);font-style:italic;">
+        Looking for something specific? <a href="/contact" style="color:var(--text-soft);text-decoration:underline;">Drop a note.</a>
+      </div>
+    </section>
+  </div>
+</Layout>
