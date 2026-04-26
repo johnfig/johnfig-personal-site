@@ -233,32 +233,26 @@ const allJsonLd = [personSchema, websiteSchema, ...jsonLd];
         .hero-fold .hero-stats { margin-top: auto; }
       }
 
-      /* Scroll cue beneath the stats bar */
+      /* Scroll cue beneath the stats bar — minimal chevron */
       .scroll-cue {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 8px;
-        padding: 20px 0 22px;
+        justify-content: center;
+        padding: 24px 0 28px;
         color: var(--text-dim);
         text-decoration: none;
         transition: color 0.2s ease;
       }
-      .scroll-cue:hover { color: var(--text-soft); }
-      .scroll-cue-label {
-        font-size: 10px;
-        letter-spacing: 0.3em;
+      .scroll-cue:hover { color: var(--text); }
+      .scroll-cue-chevron {
+        animation: scrollNudge 2.2s ease-in-out infinite;
       }
-      .scroll-cue-arrow {
-        display: inline-flex;
-        animation: scrollBounce 2.2s ease-in-out infinite;
-      }
-      @keyframes scrollBounce {
-        0%, 100% { transform: translateY(0); opacity: 0.55; }
-        50%      { transform: translateY(6px); opacity: 1; }
+      @keyframes scrollNudge {
+        0%, 100% { transform: translateY(0);   opacity: 0.45; }
+        50%      { transform: translateY(4px); opacity: 1; }
       }
       @media (prefers-reduced-motion: reduce) {
-        .scroll-cue-arrow { animation: none; opacity: 0.7; }
+        .scroll-cue-chevron { animation: none; opacity: 0.7; }
       }
       html { scroll-behavior: smooth; }
 
