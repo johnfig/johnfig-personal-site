@@ -13,8 +13,36 @@ const pillars = [
   { n: '02', t: 'Value-add operating',  d: "We're operators first. Capex, repositioning, and management upgrades that move NOI in the first 24 months." },
   { n: '03', t: 'Patient compounding',  d: 'No fund clock. We hold what works. The real return is in year seven, not year one.' },
 ];
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'SISU Ventures',
+  url: 'https://www.johnfigueiredo.com/ventures/sisu-ventures',
+  founder: { '@type': 'Person', name: 'John Figueiredo', url: 'https://www.johnfigueiredo.com/' },
+  foundingDate: '2024',
+  foundingLocation: { '@type': 'Place', name: 'Sierra Foothills, California, USA' },
+  industry: 'Real Estate · Private Investment',
+  description: 'Value-add real estate platform investing in high cash-flowing markets. Patient capital, operator-led, no fund clock.',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home',         item: 'https://www.johnfigueiredo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Ventures',     item: 'https://www.johnfigueiredo.com/#ventures' },
+    { '@type': 'ListItem', position: 3, name: 'SISU Ventures', item: 'https://www.johnfigueiredo.com/ventures/sisu-ventures' },
+  ],
+};
 ---
-<Layout title="SISU Ventures — John Figueiredo" active="Home" description="SISU Ventures: a value-add real estate platform investing in high cash-flowing markets. Patient capital, operator-led.">
+<Layout
+  title="SISU Ventures — Real Estate · CEO · John Figueiredo"
+  active="Home"
+  description="SISU Ventures: a value-add real estate platform investing in high cash-flowing markets. Patient capital, operator-led, founded by John Figueiredo in 2024."
+  ogType="article"
+  jsonLd={[orgSchema, breadcrumbSchema]}
+>
   <div style="position:relative;overflow:hidden;">
     <div aria-hidden="true" style="position:absolute;top:-10%;right:-10%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle, rgba(255,107,61,0.15), transparent 70%);filter:blur(90px);z-index:0;"></div>
     <div aria-hidden="true" style="position:absolute;bottom:-15%;left:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(255,107,61,0.12), transparent 70%);filter:blur(80px);z-index:0;"></div>

@@ -1,10 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.johnfigueiredo.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.johnfigueiredo.com/bio</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.johnfigueiredo.com/feed</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.johnfigueiredo.com/contact</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.johnfigueiredo.com/ventures/sisu-extracts</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.johnfigueiredo.com/ventures/plaito</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.johnfigueiredo.com/ventures/sisu-ventures</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.johnfigueiredo.com/</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.johnfigueiredo.com/assets/portrait.jpeg</image:loc>
+      <image:title>John Figueiredo — Founder, Builder, Investor</image:title>
+      <image:caption>Portrait of John Figueiredo, founder of SISU Extracts, Plaito, and SISU Ventures.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.johnfigueiredo.com/bio</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.johnfigueiredo.com/assets/family.png</image:loc>
+      <image:title>John Figueiredo with family</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.johnfigueiredo.com/feed</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.johnfigueiredo.com/contact</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.johnfigueiredo.com/ventures/sisu-extracts</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://www.johnfigueiredo.com/assets/sisu-team.png</image:loc>
+      <image:title>The SISU Extracts team</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.johnfigueiredo.com/assets/sisu-mjbiz.png</image:loc>
+      <image:title>SISU Extracts — MJBizCon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.johnfigueiredo.com/assets/sisu-flooded.png</image:loc>
+      <image:title>SISU Extracts production floor</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.johnfigueiredo.com/assets/sisu-crusher.png</image:loc>
+      <image:title>SISU Extracts processing equipment</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.johnfigueiredo.com/ventures/plaito</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.johnfigueiredo.com/ventures/sisu-ventures</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>

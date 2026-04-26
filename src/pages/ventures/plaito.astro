@@ -8,8 +8,39 @@ const stats = [
   { v: '180',  l: 'Countries' },
   { v: '40',   l: 'Languages' },
 ];
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Plaito',
+  alternateName: ['Plaito AI', 'Plaito Learning'],
+  url: 'https://www.johnfigueiredo.com/ventures/plaito',
+  founder: [
+    { '@type': 'Person', name: 'John Figueiredo', url: 'https://www.johnfigueiredo.com/' },
+    { '@type': 'Person', name: 'Gregory Marcilhacy' },
+  ],
+  foundingDate: '2018',
+  industry: 'Education Technology · Artificial Intelligence',
+  description: 'AI-powered personal tutor delivering one-on-one tutoring in math, sciences, English, business, and law across 40 languages. Reached 1M+ downloads in 180 countries.',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home',     item: 'https://www.johnfigueiredo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Ventures', item: 'https://www.johnfigueiredo.com/#ventures' },
+    { '@type': 'ListItem', position: 3, name: 'Plaito',   item: 'https://www.johnfigueiredo.com/ventures/plaito' },
+  ],
+};
 ---
-<Layout title="Plaito — John Figueiredo" active="Home" description="Plaito: an AI tutor that reached 1M+ downloads across 180 countries in 40 languages. The product worked. The business didn't. The mission still drives me.">
+<Layout
+  title="Plaito — AI Tutor · 1M+ Downloads in 180 Countries · John Figueiredo"
+  active="Home"
+  description="Plaito: an AI tutor that reached 1M+ downloads across 180 countries in 40 languages, founded by John Figueiredo. The product worked. The business didn't. The mission still drives me."
+  ogType="article"
+  jsonLd={[orgSchema, breadcrumbSchema]}
+>
   <div style="position:relative;overflow:hidden;">
     <div aria-hidden="true" style="position:absolute;top:-10%;right:-10%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle, rgba(90,214,255,0.15), transparent 70%);filter:blur(90px);z-index:0;"></div>
     <div aria-hidden="true" style="position:absolute;bottom:-15%;left:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(90,214,255,0.12), transparent 70%);filter:blur(80px);z-index:0;"></div>

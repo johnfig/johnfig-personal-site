@@ -15,8 +15,53 @@ const milestones: [string, string, string][] = [
   ['2024',  'SISU Ventures · CEO',                          'var(--accent-3)'],
   ['NOW',   'Sierra foothills · real estate · investing',   'var(--accent)'],
 ];
+
+// Curated positive press, podcast appearances, and authoritative profiles.
+// These power both the visible "Press & Mentions" section and the Person
+// schema sameAs[] — the most important Knowledge Graph entity signal.
+type Press = { outlet: string; date: string; title: string; href: string; kind: 'Article' | 'Podcast' | 'Profile' };
+const press: Press[] = [
+  { outlet: 'MG Magazine',              date: '2019',    kind: 'Article', title: 'Sisu Extracts: Turning Trim into Gold',                                          href: 'https://mgmagazine.com/business/retail-merchandise/sisu-extracts-turning-trim-into-gold/' },
+  { outlet: 'MJBizDaily',               date: '2020',    kind: 'Article', title: 'How to Keep Extraction Costs Low (with John Figueiredo, CEO)',                  href: 'https://mjbizdaily.com/how-to-keep-extraction-costs-low/' },
+  { outlet: 'Cannabis Business Times',  date: '2020',    kind: 'Article', title: 'Left Coast Ventures Announces Acquisition of Sisu Extracts',                    href: 'https://www.cannabisbusinesstimes.com/business-issues-benchmarks/finance/news/15691093/left-coast-ventures-announces-acquisition-of-sisu-extracts' },
+  { outlet: 'Extraction Magazine',      date: '2019',    kind: 'Article', title: "California's Leading Extractor Fills Two Million Cartridges Per Month",         href: 'https://extractionmagazine.com/2019/07/03/leading-california-extractor-fills-two-million-cartridges-per-month-with-next-generation-distillate/' },
+  { outlet: 'BusinessWire',             date: '2020',    kind: 'Article', title: 'Left Coast Ventures Announces Acquisition of Sisu Extracts',                    href: 'https://www.businesswire.com/news/home/20200310005364/en/Left-Coast-Ventures-Announces-Acquisition-of-Sisu-Extracts' },
+  { outlet: 'Green Market Report',      date: '2021',    kind: 'Article', title: 'Subversive SPAC Forms The Parent Company With Jay-Z & Roc Nation',              href: 'https://www.greenmarketreport.com/subversive-spac-forms-the-parent-company-with-jaz-z-roc-nation/' },
+  { outlet: 'Benzinga',                 date: '2022',    kind: 'Article', title: 'The Parent Company Divests Wholesale Cannabis Extraction Division',             href: 'https://www.benzinga.com/markets/cannabis/22/11/29547180/the-parent-company-divests-wholesale-cannabis-extraction-division' },
+  { outlet: 'RWS Magazine',             date: '2023',    kind: 'Article', title: "Plaito's AI Education Platform to Reach 1M Downloads",                          href: 'https://rwsmagazine.com/plaitos-ai-education-platform-to-reach-1m-downloads/' },
+  { outlet: 'BUILDERS w/ Alex Snider',  date: '2022',    kind: 'Podcast', title: 'From Limo Driver to 9-Figure Founder',                                          href: 'https://www.youtube.com/watch?v=wdzl2ribBxE' },
+  { outlet: 'Hemp Barons Podcast',      date: '2019',    kind: 'Podcast', title: 'Sisu Extracts — John Figueiredo & Joe Wynne',                                   href: 'https://podcasts.apple.com/us/podcast/sisu-extracts-john-figueiredo-joe-wynne/id1455758113?i=1000441098909' },
+  { outlet: 'Crunchbase',               date: 'Profile', kind: 'Profile', title: 'John Figueiredo — President of SISU @ The Parent Company',                      href: 'https://www.crunchbase.com/person/john-figueiredo' },
+  { outlet: 'Pitchbook',                date: 'Profile', kind: 'Profile', title: 'Sisu Extracts — Valuation, Investors, Acquisition',                             href: 'https://pitchbook.com/profiles/company/433116-28' },
+  { outlet: 'LinkedIn',                 date: 'Profile', kind: 'Profile', title: 'John Figueiredo — Determined to Build a Brighter Future',                       href: 'https://www.linkedin.com/in/john-fig/' },
+];
+
+// Bio-specific structured data: ProfilePage + BreadcrumbList.
+const profilePageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  name: 'Bio — John Figueiredo',
+  description: "From driving limos and sleeping in one to a $100M exit — the long-form story of John Figueiredo's career.",
+  url: 'https://www.johnfigueiredo.com/bio',
+  mainEntity: { '@type': 'Person', name: 'John Figueiredo', url: 'https://www.johnfigueiredo.com/' },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.johnfigueiredo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Bio',  item: 'https://www.johnfigueiredo.com/bio'  },
+  ],
+};
 ---
-<Layout title="Bio — John Figueiredo" active="Bio" description="From driving limos to a $100M exit — the long version of John Figueiredo's story.">
+<Layout
+  title="Bio — John Figueiredo: From Limo Driver to $100M Founder"
+  active="Bio"
+  description="The long-form story of John Figueiredo: from driving limos in San Francisco to founding SISU Extracts ($101M ARR, $100M exit with Jay-Z), Plaito (1M+ downloads in 180 countries), and SISU Ventures."
+  ogType="profile"
+  jsonLd={[profilePageSchema, breadcrumbSchema]}
+>
   <div style="position:relative;overflow:hidden;">
     <div aria-hidden="true" style="position:absolute;top:-10%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(90,214,255,0.15), transparent 70%);filter:blur(80px);z-index:0;"></div>
 
@@ -83,6 +128,46 @@ const milestones: [string, string, string][] = [
           </div>
         </aside>
       </section>
+
+      <!-- PRESS & MENTIONS -->
+      <section class="section" style="padding-top:40px;padding-bottom:100px;position:relative;">
+        <span class="label cyan">PRESS &amp; MENTIONS</span>
+        <h2 class="display section-title" style="line-height:0.95;letter-spacing:-0.035em;margin:16px 0 12px;font-weight:700;font-size:clamp(36px,6vw,64px);">
+          In the press<span style="color:var(--accent-2);">.</span>
+        </h2>
+        <p class="sans" style="font-size:clamp(15px,1.4vw,17px);line-height:1.55;color:var(--text-soft);max-width:640px;margin:0 0 36px;">
+          A selection of articles, podcast appearances, and authoritative profiles covering SISU Extracts, Plaito, and the work along the way.
+        </p>
+
+        <ul class="press-grid" style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;">
+          {press.map((p) => (
+            <li>
+              <a
+                href={p.href}
+                target="_blank"
+                rel="noopener external"
+                class="press-card"
+                style="display:flex;flex-direction:column;justify-content:space-between;height:100%;padding:20px 22px;border-radius:14px;background:var(--surface);border:1px solid var(--border);text-decoration:none;color:var(--text);transition:transform 0.2s ease, border-color 0.2s ease;"
+              >
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+                  <span class="mono" style="font-size:10px;letter-spacing:0.22em;color:var(--accent-2);text-transform:uppercase;">{p.outlet}</span>
+                  <span class="mono" style="font-size:10px;letter-spacing:0.18em;color:var(--text-dim);">{p.kind} · {p.date}</span>
+                </div>
+                <div class="display" style="margin-top:14px;font-size:18px;line-height:1.3;font-weight:600;letter-spacing:-0.01em;">{p.title}</div>
+                <div class="mono" style="margin-top:18px;font-size:11px;letter-spacing:0.2em;color:var(--text-dim);">READ ↗</div>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div style="margin-top:32px;font-size:13px;color:var(--text-dim);font-style:italic;">
+          Working on a piece about John Figueiredo, SISU Extracts, Plaito, or SISU Ventures? <a href="/contact" style="color:var(--text-soft);text-decoration:underline;">Get in touch.</a>
+        </div>
+      </section>
     </div>
   </div>
+
+  <style>
+    .press-card:hover { transform: translateY(-2px); border-color: var(--text-dim); }
+  </style>
 </Layout>

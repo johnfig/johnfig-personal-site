@@ -23,8 +23,76 @@ const timeline = [
   { y: '2022',  t: 'Plaito · 1M downloads',                 d: "AI tutor in 180 countries, 40 languages. The business failed; the mission didn't.",                  c: 'var(--accent-2)', side: 'L' },
   { y: 'NOW',   t: 'Sierra foothills · family',             d: "Lifestyle business by design. Managing the real estate portfolio, incubating and investing in new companies, with my wife and son — the reason any of it matters.", c: 'var(--accent-3)', side: 'R' },
 ];
+
+// Home-page-specific structured data: a FAQPage that surfaces highly searched
+// "Who is John Figueiredo?" / "What is SISU Extracts?" queries directly into
+// the SERP, plus an ItemList of his founding ventures.
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Who is John Figueiredo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'John Figueiredo is a founder and investor based in the Sierra foothills of California. He co-founded SISU Extracts (grown from $0 to $101M ARR, exited in a $1B transaction with Jay-Z as Chief Visionary Officer), founded Plaito (AI tutor with 1M+ downloads in 180 countries), and is CEO of SISU Ventures, a value-add real estate platform.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is SISU Extracts?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'SISU Extracts is a California cannabis distillate company co-founded in 2017 by John Figueiredo, Joe Wynne, and Shannon Byers. SISU supplied roughly 20% of the legal California vape distillate market and paid local cannabis farmers a 70/30 profit split in their favor. The company was acquired in a $1B transaction with Jay-Z as Chief Visionary Officer.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is Plaito?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Plaito is an AI tutor founded by John Figueiredo and Gregory Marcilhacy in 2018. It reached more than 1 million downloads, 130,000 weekly active users across 180 countries, and tutored students in 40 languages. The mission was to dissolve the financial barrier between any student and a great teacher.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is SISU Ventures?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'SISU Ventures is a value-add real estate platform founded by John Figueiredo in 2024, focused on cash-flowing markets. Operator-led, patient capital, no fund clock.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where is John Figueiredo based?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'John Figueiredo lives in the Sierra foothills of Northern California with his wife and son.',
+      },
+    },
+  ],
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Ventures founded by John Figueiredo',
+  itemListElement: ventures.map((v, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `https://www.johnfigueiredo.com${v.href}`,
+    name: v.n,
+    description: v.d,
+  })),
+};
 ---
-<Layout title="John Figueiredo — Founder, Builder, Investor" active="Home" description="John Figueiredo grew SISU Extracts from $0 to $101M ARR and a $100M exit. Shipped Plaito to 1M students in 180 countries. Now building SISU Ventures.">
+<Layout
+  title="John Figueiredo — Founder of SISU Extracts ($100M Exit), Plaito & SISU Ventures"
+  active="Home"
+  description="John Figueiredo: co-founder of SISU Extracts ($101M ARR, $100M exit in a $1B transaction with Jay-Z), founder of Plaito (1M+ downloads, 180 countries), CEO of SISU Ventures. Founder, builder, investor based in the Sierra foothills."
+  jsonLd={[faqSchema, itemListSchema]}
+>
   <div style="position:relative;overflow:hidden;">
     <!-- Animated gradient orbs -->
     <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;">

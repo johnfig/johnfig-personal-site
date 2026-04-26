@@ -1,4 +1,50 @@
+# https://www.johnfigueiredo.com — robots.txt
+# All crawlers welcome on the public site.
+
 User-agent: *
+Allow: /
+Disallow: /api/
+
+# Be explicit with major search engines so they crawl deeply.
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# AI crawlers — allowed so the site can be cited and surfaced in
+# AI search experiences (Google AI Overviews, ChatGPT, Perplexity, Claude).
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://www.johnfigueiredo.com/sitemap.xml
