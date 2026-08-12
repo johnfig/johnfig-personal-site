@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { personRef } from '../schema';
 
 const milestones: [string, string, string][] = [
   ['EARLY', 'Northern California · video stores',           'var(--accent-4)'],
@@ -43,7 +44,9 @@ const profilePageSchema = {
   name: 'Bio — John Figueiredo',
   description: "From driving limos and sleeping in one to a $100M exit — the long-form story of John Figueiredo's career.",
   url: 'https://www.johnfigueiredo.com/bio',
-  mainEntity: { '@type': 'Person', name: 'John Figueiredo', url: 'https://www.johnfigueiredo.com/' },
+  // Reference the canonical Person (see src/schema.ts) rather than restating a
+  // thin copy — this page is the long-form profile *of* that entity.
+  mainEntity: personRef(),
 };
 
 const breadcrumbSchema = {

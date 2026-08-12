@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { personRef } from '../schema';
 
 const items = [
   { kind: 'ESSAY',   d: 'APR 2026', t: 'On time as the only real currency',                  x: 'An update of a thesis I keep returning to: $0–$10K is education and side hustles. Education ROI is the highest there is when you have nothing to lose.', c: 'var(--accent)'   },
@@ -12,20 +13,29 @@ const items = [
 
 const filters = ['All', 'Essays', 'Projects', 'Notes', 'Running'];
 
+// The display date ("APR 2026") is not valid ISO 8601, and an unparseable
+// datePublished invalidates the BlogPosting it sits on. Emit year-month.
+const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+const isoDate = (display: string) => {
+  const [mon, year] = display.split(' ');
+  const idx = MONTHS.indexOf(mon.toUpperCase());
+  return idx === -1 ? undefined : `${year}-${String(idx + 1).padStart(2, '0')}`;
+};
+
 const blogSchema = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
   name: 'John Figueiredo — Feed',
   url: 'https://www.johnfigueiredo.com/feed',
   description: 'Essays, projects, and notes from John Figueiredo on building, education, real estate, and compounding.',
-  author: { '@type': 'Person', name: 'John Figueiredo', url: 'https://www.johnfigueiredo.com/' },
-  publisher: { '@type': 'Person', name: 'John Figueiredo', url: 'https://www.johnfigueiredo.com/' },
+  author: personRef(),
+  publisher: personRef(),
   blogPost: items.map((it) => ({
     '@type': 'BlogPosting',
     headline: it.t,
     abstract: it.x,
-    datePublished: it.d,
-    author: { '@type': 'Person', name: 'John Figueiredo' },
+    datePublished: isoDate(it.d),
+    author: personRef(),
   })),
 };
 

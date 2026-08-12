@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { personRef } from '../../schema';
 
 const accent = 'var(--accent-2)';
 const stats = [
@@ -16,7 +17,7 @@ const orgSchema = {
   alternateName: ['Plaito AI', 'Plaito Learning'],
   url: 'https://www.johnfigueiredo.com/ventures/plaito',
   founder: [
-    { '@type': 'Person', name: 'John Figueiredo', url: 'https://www.johnfigueiredo.com/' },
+    personRef(),
     { '@type': 'Person', name: 'Gregory Marcilhacy' },
   ],
   foundingDate: '2018',

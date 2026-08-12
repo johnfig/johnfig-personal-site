@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { personRef } from '../../schema';
 
 const accent = 'var(--accent)';
 const stats = [
@@ -15,7 +16,7 @@ const orgSchema = {
   name: 'SISU Extracts',
   alternateName: ['SISU', 'Sisu Extraction'],
   url: 'https://www.johnfigueiredo.com/ventures/sisu-extracts',
-  founder: { '@type': 'Person', name: 'John Figueiredo', url: 'https://www.johnfigueiredo.com/' },
+  founder: personRef(),
   foundingDate: '2017',
   foundingLocation: { '@type': 'Place', name: 'California, USA' },
   industry: 'Cannabis · Manufacturing & Distribution',

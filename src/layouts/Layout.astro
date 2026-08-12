@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { SITE_ORIGIN, PERSON_ID, personRef, SISU_VENTURES_ID, SISU_VENTURES_URL } from '../schema';
 
 interface Props {
   title?: string;
@@ -33,7 +34,6 @@ const robotsContent = noIndex
   ? 'noindex,follow'
   : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
 
-const SITE_ORIGIN = 'https://www.johnfigueiredo.com';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_ORIGIN}${ogImage}`;
 
@@ -41,10 +41,12 @@ const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_ORIGIN}${
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': PERSON_ID,
   name: 'John Figueiredo',
   alternateName: ['John Fig', 'Johnny Figueiredo'],
   url: `${SITE_ORIGIN}/`,
   image: `${SITE_ORIGIN}/assets/portrait.jpeg`,
+  email: 'john@johnfigueiredo.com',
   jobTitle: 'Founder & CEO, SISU Ventures',
   hasOccupation: [
     {
@@ -67,7 +69,7 @@ const personSchema = {
     'Software engineering',
     'Compounding capital',
   ],
-  worksFor: { '@type': 'Organization', name: 'SISU Ventures', url: `${SITE_ORIGIN}/ventures/sisu-ventures` },
+  worksFor: { '@id': SISU_VENTURES_ID, '@type': 'Organization', name: 'SISU Ventures', url: SISU_VENTURES_URL },
   alumniOf: [
     { '@type': 'CollegeOrUniversity', name: 'University of Oregon' },
     { '@type': 'Organization', name: 'Goodshop' },
@@ -76,7 +78,7 @@ const personSchema = {
   founder: [
     { '@type': 'Organization', name: 'SISU Extracts',  url: `${SITE_ORIGIN}/ventures/sisu-extracts`  },
     { '@type': 'Organization', name: 'Plaito',         url: `${SITE_ORIGIN}/ventures/plaito`         },
-    { '@type': 'Organization', name: 'SISU Ventures',  url: `${SITE_ORIGIN}/ventures/sisu-ventures`  },
+    { '@id': SISU_VENTURES_ID, '@type': 'Organization', name: 'SISU Ventures', url: SISU_VENTURES_URL },
   ],
   homeLocation: { '@type': 'Place', name: 'Sierra Foothills, California, USA' },
   // sameAs: external profile URLs that disambiguate this Person entity for
@@ -85,6 +87,9 @@ const personSchema = {
   // The Wikidata URL must come first — it's the most authoritative identifier.
   sameAs: [
     'https://www.wikidata.org/wiki/Q139560701',
+    // Every URL submitted on the Google knowledge-panel verification form must
+    // appear here — the form claims the panel, this is what backs the claim.
+    SISU_VENTURES_URL,
     'https://www.linkedin.com/in/john-fig/',
     'https://www.instagram.com/fig.time/',
     'https://x.com/fig_time_',
@@ -146,11 +151,15 @@ const personSchema = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': `${SITE_ORIGIN}/#website`,
   name: 'John Figueiredo',
   alternateName: 'johnfigueiredo.com',
   url: `${SITE_ORIGIN}/`,
   inLanguage: 'en-US',
-  publisher: { '@type': 'Person', name: 'John Figueiredo', url: `${SITE_ORIGIN}/` },
+  publisher: personRef(),
+  // about: this site is *about* the Person entity — a direct statement that
+  // the domain and the entity are the same subject.
+  about: personRef(),
 };
 
 const allJsonLd = [personSchema, websiteSchema, ...jsonLd];

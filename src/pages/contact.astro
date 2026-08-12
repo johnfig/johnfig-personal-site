@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { personRef } from '../schema';
 
 const channels = [
   { l: 'EMAIL',     v: 'john@johnfigueiredo.com', href: 'mailto:john@johnfigueiredo.com',         c: 'var(--accent)'   },
@@ -20,18 +21,10 @@ const contactSchema = {
   name: 'Contact — John Figueiredo',
   url: 'https://www.johnfigueiredo.com/contact',
   description: 'Get in touch with John Figueiredo. Email, LinkedIn, Instagram, or drop a message via the form.',
-  mainEntity: {
-    '@type': 'Person',
-    name: 'John Figueiredo',
-    url: 'https://www.johnfigueiredo.com/',
-    email: 'john@johnfigueiredo.com',
-    sameAs: [
-      'https://www.linkedin.com/in/john-fig/',
-      'https://www.instagram.com/fig.time/',
-      'https://x.com/fig_time_',
-      'https://github.com/johnfig',
-    ],
-  },
+  // Reference the canonical Person. This previously restated a *subset* of
+  // sameAs (no Wikidata, no press) on an anonymous node — a second, weaker
+  // John competing with the real one. Email now lives on the canonical node.
+  mainEntity: personRef(),
 };
 
 const breadcrumbSchema = {

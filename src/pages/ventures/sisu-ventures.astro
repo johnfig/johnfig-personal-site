@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { personRef, SISU_VENTURES_ID, SISU_VENTURES_URL } from '../../schema';
 
 const accent = 'var(--accent-3)';
 const stats = [
@@ -17,9 +18,11 @@ const pillars = [
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': SISU_VENTURES_ID,
   name: 'SISU Ventures',
-  url: 'https://www.johnfigueiredo.com/ventures/sisu-ventures',
-  founder: { '@type': 'Person', name: 'John Figueiredo', url: 'https://www.johnfigueiredo.com/' },
+  url: SISU_VENTURES_URL,
+  mainEntityOfPage: 'https://www.johnfigueiredo.com/ventures/sisu-ventures',
+  founder: personRef(),
   foundingDate: '2024',
   foundingLocation: { '@type': 'Place', name: 'Sierra Foothills, California, USA' },
   industry: 'Real Estate · Private Investment',
@@ -66,7 +69,7 @@ const breadcrumbSchema = {
                 Buy quality assets in markets where the fundamentals already work — then operate them better than the seller could.
               </div>
             </div>
-            <a href="https://www.sisuventures.co" target="_blank" rel="noopener noreferrer" class="btn" style={`background:${accent};color:var(--bg);font-size:16px;padding:20px 28px;justify-content:center;box-shadow:0 8px 30px rgba(255,107,61,0.33);`}>sisuventures.co →</a>
+            <a href="https://www.sisuventures.co" target="_blank" rel="me noopener" class="btn" style={`background:${accent};color:var(--bg);font-size:16px;padding:20px 28px;justify-content:center;box-shadow:0 8px 30px rgba(255,107,61,0.33);`}>sisuventures.co →</a>
           </div>
         </div>
       </section>
